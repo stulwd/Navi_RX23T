@@ -1,0 +1,399 @@
+Renesas Optimizing Linker (W2.06.00 )             29-Jul-2017 22:37:50
+
+*** Options ***
+
+-subcommand=LinkerSubCommand.tmp
+-input="./src/cg_src/data_transfer.obj"
+-input="./src/cg_src/duty.obj"
+-input="./src/cg_src/r_cg_cgc.obj"
+-input="./src/cg_src/r_cg_cgc_user.obj"
+-input="./src/cg_src/r_cg_cmt.obj"
+-input="./src/cg_src/r_cg_cmt_user.obj"
+-input="./src/cg_src/r_cg_dbsct.obj"
+-input="./src/cg_src/r_cg_hardware_setup.obj"
+-input="./src/cg_src/r_cg_intprg.obj"
+-input="./src/cg_src/r_cg_main.obj"
+-input="./src/cg_src/r_cg_port.obj"
+-input="./src/cg_src/r_cg_port_user.obj"
+-input="./src/cg_src/r_cg_resetprg.obj"
+-input="./src/cg_src/r_cg_sbrk.obj"
+-input="./src/cg_src/r_cg_sci.obj"
+-input="./src/cg_src/r_cg_sci_user.obj"
+-input="./src/cg_src/r_cg_vecttbl.obj"
+-start=SU,SI,B_1,R_1,B_2,R_2,B,R/04,PResetPRG,C_1,C_2,C,C$*,D*,W*,L,PIntPRG,P/0FFFE0000,EXCEPTVECT/0FFFFFF80,RESETVECT/0FFFFFFFC
+-library=D:\RX23T\RX23T\HARDWA~2\RX23T.lib
+-noprelink
+-list=RX23T.map
+-show
+-nooptimize
+-debug
+-output=D:\RX23T\RX23T\HardwareDebug\RX23T.abs
+-rom=D=R,D_1=R_1,D_2=R_2
+-nocompress
+-nomessage
+-nologo
+
+*** Error information ***
+
+*** Mapping List ***
+
+SECTION                            START      END         SIZE   ALIGN
+
+SU
+                                  00000004  00000103       100   4
+SI
+                                  00000104  00000403       300   4
+B_1
+                                  00000404  00000436        33   1
+R_1
+                                  00000437  0000045f        29   1
+B_2
+                                  00000460  00000883       424   2
+R_2
+                                  00000884  00000884         0   1
+B
+                                  00000884  0000089b        18   4
+R
+                                  0000089c  0000089f         4   4
+PResetPRG
+                                  fffe0000  fffe003d        3e   1
+C_1
+                                  fffe003e  fffe003e         0   1
+C_2
+                                  fffe003e  fffe003e         0   1
+C
+                                  fffe0040  fffe0073        34   4
+C$DSEC
+                                  fffe0074  fffe0097        24   4
+C$BSEC
+                                  fffe0098  fffe00af        18   4
+C$INIT
+                                  fffe00b0  fffe00b0         0   1
+C$VECT
+                                  fffe00b0  fffe04af       400   4
+C$VTBL
+                                  fffe04b0  fffe04b0         0   1
+D_1
+                                  fffe04b0  fffe04d8        29   1
+D
+                                  fffe04dc  fffe04df         4   4
+D_2
+                                  fffe04e0  fffe04e0         0   1
+W
+                                  fffe04e0  fffe04e0         0   1
+W_1
+                                  fffe04e0  fffe04e0         0   1
+W_2
+                                  fffe04e0  fffe04e0         0   1
+L
+                                  fffe04e0  fffe04e0         0   1
+PIntPRG
+                                  fffe04e0  fffe04ed         e   1
+P
+                                  fffe04ee  fffe0bf9       70c   1
+EXCEPTVECT
+                                  ffffff80  fffffffb        7c   4
+RESETVECT
+                                  fffffffc  ffffffff         4   4
+
+*** Symbol List ***
+
+SECTION=
+FILE=                               START        END    SIZE
+  SYMBOL                            ADDR        SIZE    INFO      COUNTS  OPT
+
+SECTION=SU
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  00000004  00000103       100
+
+SECTION=SI
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  00000104  00000403       300
+
+SECTION=B_1
+FILE=.\src\cg_src\r_cg_sci_user.obj
+                                  00000404  00000436        33
+  _RxBuffer
+                                  00000404        32   data ,g         1
+  _Com_Data
+                                  00000436         1   data ,g         2
+
+SECTION=R_1
+FILE=.\src\cg_src\duty.obj
+                                  00000437  0000044d        17
+  _Tx_buffer
+                                  00000437         b   data ,g         0
+  _up_flag
+                                  00000442         1   data ,g         2
+  _pass_A_flag
+                                  00000443         1   data ,g         2
+  _pass_B_flag
+                                  00000444         1   data ,g         2
+  _pass_C_flag
+                                  00000445         1   data ,g         2
+  _down_flag
+                                  00000446         1   data ,g         2
+  _Tx_buffer$1
+                                  00000447         7   data ,l         1
+FILE=.\src\cg_src\r_cg_main.obj
+                                  0000044e  0000045c         f
+  _SCI_Send_Data
+                                  0000044e         f   data ,g         0
+FILE=.\src\cg_src\r_cg_sci_user.obj
+                                  0000045d  0000045f         3
+  __data_len$1
+                                  0000045d         1   data ,l         1
+  __data_cnt$2
+                                  0000045e         1   data ,l         1
+  _state$3
+                                  0000045f         1   data ,l         1
+
+SECTION=B_2
+FILE=.\src\cg_src\r_cg_cmt_user.obj
+                                  00000460  00000477        18
+  _loop
+                                  00000460        18   data ,g         2
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  00000478  00000877       400
+  _heap_area
+                                  00000478       400   data ,l         2
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  00000878  00000883         c
+  _g_sci1_tx_count
+                                  00000878         2   data ,g         2
+  _g_sci1_rx_count
+                                  0000087a         2   data ,g         2
+  _g_sci1_rx_length
+                                  0000087c         2   data ,g         2
+  _g_sci5_tx_count
+                                  0000087e         2   data ,g         2
+  _g_sci5_rx_count
+                                  00000880         2   data ,g         2
+  _g_sci5_rx_length
+                                  00000882         2   data ,g         2
+
+SECTION=B
+FILE=.\src\cg_src\duty.obj
+                                  00000884  0000088b         8
+  _cnt$2
+                                  00000884         4   data ,l         1
+  _led_f$3
+                                  00000888         4   data ,l         1
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  0000088c  0000089b        10
+  _gp_sci1_tx_address
+                                  0000088c         4   data ,g         2
+  _gp_sci1_rx_address
+                                  00000890         4   data ,g         2
+  _gp_sci5_tx_address
+                                  00000894         4   data ,g         2
+  _gp_sci5_rx_address
+                                  00000898         4   data ,g         2
+
+SECTION=R
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  0000089c  0000089f         4
+  _brk
+                                  0000089c         4   data ,l         1
+
+SECTION=PResetPRG
+FILE=.\src\cg_src\r_cg_resetprg.obj
+                                  fffe0000  fffe003d        3e
+  _PowerON_Reset_PC
+                                  fffe0000        3e   entry,g         1
+
+SECTION=C
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe0040  fffe0073        34
+  __CTBL
+                                  fffe0040        34   data ,g         0
+
+SECTION=C$DSEC
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe0074  fffe0097        24
+  __DTBL
+                                  fffe0074        24   data ,g         0
+
+SECTION=C$BSEC
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe0098  fffe00af        18
+  __BTBL
+                                  fffe0098        18   data ,g         0
+
+SECTION=C$VECT
+FILE=.\src\cg_src\r_cg_dbsct.obj
+                                  fffe00b0  fffe04af       400
+
+SECTION=D_1
+FILE=.\src\cg_src\duty.obj
+                                  fffe04b0  fffe04c6        17
+FILE=.\src\cg_src\r_cg_main.obj
+                                  fffe04c7  fffe04d5         f
+FILE=.\src\cg_src\r_cg_sci_user.obj
+                                  fffe04d6  fffe04d8         3
+
+SECTION=D
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  fffe04dc  fffe04df         4
+
+SECTION=PIntPRG
+FILE=.\src\cg_src\r_cg_intprg.obj
+                                  fffe04e0  fffe04ed         e
+  _r_undefined_exception
+                                  fffe04e0         2   func ,g         1
+  _r_privileged_exception
+                                  fffe04e2         2   func ,g         1
+  _r_floatingpoint_exception
+                                  fffe04e4         2   func ,g         1
+  _r_access_exception
+                                  fffe04e6         2   func ,g         1
+  _r_reserved_exception
+                                  fffe04e8         2   func ,g        13
+  _r_nmi_exception
+                                  fffe04ea         2   func ,g         1
+  _r_brk_exception
+                                  fffe04ec         2   func ,g         0
+
+SECTION=P
+FILE=.\src\cg_src\data_transfer.obj
+                                  fffe04ee  fffe0548        5b
+  _Data_Receive_Anl
+                                  fffe04ee        5b   func ,g         1
+FILE=.\src\cg_src\duty.obj
+                                  fffe0549  fffe05e5        9d
+  _Duty_1ms
+                                  fffe0549         1   func ,g         1
+  _Duty_2ms
+                                  fffe054a         1   func ,g         1
+  _Duty_5ms
+                                  fffe054b         1   func ,g         1
+  _Duty_10ms
+                                  fffe054c         1   func ,g         1
+  _Duty_20ms
+                                  fffe054d         1   func ,g         1
+  _Duty_50ms
+                                  fffe054e         1   func ,g         1
+  _Duty_1s
+                                  fffe054f         1   func ,g         1
+  _Duty_2s
+                                  fffe0550         1   func ,g         1
+  _indicate_LED
+                                  fffe0551        95   func ,g         1
+FILE=.\src\cg_src\r_cg_cgc.obj
+                                  fffe05e6  fffe0631        4c
+  _R_CGC_Create
+                                  fffe05e6        4c   func ,g         1
+FILE=.\src\cg_src\r_cg_cmt.obj
+                                  fffe0632  fffe0684        53
+  _R_CMT0_Create
+                                  fffe0632        2a   func ,g         1
+  _R_CMT0_Start
+                                  fffe065c        13   func ,g         1
+  _R_CMT0_Stop
+                                  fffe066f        16   func ,g         0
+FILE=.\src\cg_src\r_cg_cmt_user.obj
+                                  fffe0685  fffe0754        d0
+  _r_cmt_cmi0_interrupt
+                                  fffe0685         d   func ,l         0
+  _Loop_check
+                                  fffe0692        4a   func ,g         1
+  _Duty_Loop
+                                  fffe06dc        79   func ,g         1
+FILE=.\src\cg_src\r_cg_hardware_setup.obj
+                                  fffe0755  fffe0789        35
+  _R_Systeminit
+                                  fffe0755        33   func ,g         1
+  _HardwareSetup
+                                  fffe0788         2   func ,g         1
+FILE=.\src\cg_src\r_cg_main.obj
+                                  fffe078a  fffe07a6        1d
+  _main
+                                  fffe078a         9   func ,g         1
+  _R_MAIN_UserInit
+                                  fffe0793        14   func ,l         1
+FILE=.\src\cg_src\r_cg_port.obj
+                                  fffe07a7  fffe07b7        11
+  _R_PORT_Create
+                                  fffe07a7        11   func ,g         1
+FILE=.\src\cg_src\r_cg_sbrk.obj
+                                  fffe07b8  fffe07d8        21
+  _sbrk
+                                  fffe07b8        21   func ,g         0
+FILE=.\src\cg_src\r_cg_sci.obj
+                                  fffe07d9  fffe09e9       211
+  _R_SCI1_Create
+                                  fffe07d9        64   func ,g         1
+  _R_SCI1_Start
+                                  fffe083d        1b   func ,g         0
+  _R_SCI1_Stop
+                                  fffe0858        34   func ,g         0
+  _R_SCI1_Serial_Receive
+                                  fffe088c        2c   func ,g         0
+  _R_SCI1_Serial_Send
+                                  fffe08b8        2e   func ,g         0
+  _R_SCI5_Create
+                                  fffe08e6        63   func ,g         1
+  _R_SCI5_Start
+                                  fffe0949        17   func ,g         1
+  _R_SCI5_Stop
+                                  fffe0960        30   func ,g         0
+  _R_SCI5_Serial_Receive
+                                  fffe0990        2c   func ,g         2
+  _R_SCI5_Serial_Send
+                                  fffe09bc        2e   func ,g         1
+FILE=.\src\cg_src\r_cg_sci_user.obj
+                                  fffe09ea  fffe0baf       1c6
+  _r_sci1_transmit_interrupt
+                                  fffe09ea        35   func ,l         0
+  _r_sci1_transmitend_interrupt
+                                  fffe0a1f        1d   func ,l         0
+  _r_sci1_receive_interrupt
+                                  fffe0a3c        42   func ,l         0
+  _r_sci1_receiveerror_interrupt
+                                  fffe0a7e        1d   func ,l         0
+  _r_sci1_callback_receiveend
+                                  fffe0a9b         1   func ,l         1
+  _r_sci1_callback_receiveerror
+                                  fffe0a9c         1   func ,l         1
+  _r_sci5_transmit_interrupt
+                                  fffe0a9d        35   func ,l         0
+  _r_sci5_transmitend_interrupt
+                                  fffe0ad2        1d   func ,l         0
+  _r_sci5_receive_interrupt
+                                  fffe0aef        42   func ,l         0
+  _r_sci5_callback_receiveend
+                                  fffe0b31        16   func ,l         1
+  _Receive_joint
+                                  fffe0b47        69   func ,g         1
+FILE=__initsct
+                                  fffe0bb0  fffe0bf9        4a
+  __INITSCT
+                                  fffe0bb0         0   none ,g         1
+  loop1
+                                  fffe0bc2         0   none ,l         1
+  next_loop1
+                                  fffe0bd0         0   none ,l         2
+  loop3
+                                  fffe0be2         0   none ,l         1
+  next_loop3
+                                  fffe0bf3         0   none ,l         2
+
+SECTION=EXCEPTVECT
+FILE=.\src\cg_src\r_cg_vecttbl.obj
+                                  ffffff80  fffffffb        7c
+  _Excpt_Vectors
+                                  ffffff80        7c   data ,g         0
+
+SECTION=RESETVECT
+FILE=.\src\cg_src\r_cg_vecttbl.obj
+                                  fffffffc  ffffffff         4
+  _Reset_Vectors
+                                  fffffffc         4   data ,g         0
+
+*** Unfilled Areas ***
+
+AREA                                START    END
+
+*** Delete Symbols ***
+
+SYMBOL                                SIZE    INFO
