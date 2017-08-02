@@ -12,8 +12,11 @@
 
 #endif /* CG_SRC_DUTY_H_ */
 
-
-extern char up_flag,pass_A_flag,pass_B_flag,pass_C_flag,down_flag;
+typedef struct{
+	unsigned char status;
+}Fly_info
+;
+extern Fly_info f_info;
 
 void Duty_1ms(void);
 void Duty_2ms(void);
@@ -25,3 +28,4 @@ void Duty_1s(void);
 void Duty_2s(void);
 
 void indicate_LED (void);
+void Navigate (void);

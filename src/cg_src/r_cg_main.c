@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements main function.
-* Creation Date: 2017/7/29
+* Creation Date: 2017/8/1
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -38,9 +38,11 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_cgc.h"
 #include "r_cg_port.h"
+#include "r_cg_mtu3.h"
 #include "r_cg_cmt.h"
 #include "r_cg_sci.h"
 /* Start user code for include. Do not edit comment generated here */
+#include "Navi.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -67,6 +69,7 @@ void main(void)
     /* Start user code. Do not edit comment generated here */
     while (1U)
     {
+    	Navigate();
     	Duty_Loop();     //任务循环
     }
     /* End user code. Do not edit comment generated here */
@@ -83,6 +86,7 @@ void R_MAIN_UserInit(void)
     R_CMT0_Start();   //开启1ms中断定时器
     R_SCI5_Start();	  //启动串口
     R_SCI5_Serial_Receive(&Com_Data , 1);
+    R_MTU3_C0_Start();
     /* End user code. Do not edit comment generated here */
 }
 

@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for CMT module.
-* Creation Date: 2017/7/29
+* Creation Date: 2017/8/1
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -38,7 +38,7 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_cmt.h"
 /* Start user code for include. Do not edit comment generated here */
-#include "duty.h"
+#include "Navi.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 

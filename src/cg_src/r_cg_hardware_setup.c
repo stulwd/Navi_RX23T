@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements system initializing function.
-* Creation Date: 2017/7/29
+* Creation Date: 2017/8/1
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -38,6 +38,7 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_cgc.h"
 #include "r_cg_port.h"
+#include "r_cg_mtu3.h"
 #include "r_cg_cmt.h"
 #include "r_cg_sci.h"
 /* Start user code for include. Do not edit comment generated here */
@@ -70,6 +71,7 @@ void R_Systeminit(void)
     /* Set peripheral settings */
     R_CGC_Create();
     R_PORT_Create();
+    R_MTU3_Create();
     R_CMT0_Create();
     R_SCI1_Create();
     R_SCI5_Create();

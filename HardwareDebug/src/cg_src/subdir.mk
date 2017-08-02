@@ -4,8 +4,8 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+..\src/cg_src/Navi.c \
 ..\src/cg_src/data_transfer.c \
-..\src/cg_src/duty.c \
 ..\src/cg_src/r_cg_cgc.c \
 ..\src/cg_src/r_cg_cgc_user.c \
 ..\src/cg_src/r_cg_cmt.c \
@@ -14,6 +14,8 @@ C_SRCS += \
 ..\src/cg_src/r_cg_hardware_setup.c \
 ..\src/cg_src/r_cg_intprg.c \
 ..\src/cg_src/r_cg_main.c \
+..\src/cg_src/r_cg_mtu3.c \
+..\src/cg_src/r_cg_mtu3_user.c \
 ..\src/cg_src/r_cg_port.c \
 ..\src/cg_src/r_cg_port_user.c \
 ..\src/cg_src/r_cg_resetprg.c \
@@ -23,8 +25,8 @@ C_SRCS += \
 ..\src/cg_src/r_cg_vecttbl.c 
 
 C_DEPS += \
+./src/cg_src/Navi.d \
 ./src/cg_src/data_transfer.d \
-./src/cg_src/duty.d \
 ./src/cg_src/r_cg_cgc.d \
 ./src/cg_src/r_cg_cgc_user.d \
 ./src/cg_src/r_cg_cmt.d \
@@ -33,6 +35,8 @@ C_DEPS += \
 ./src/cg_src/r_cg_hardware_setup.d \
 ./src/cg_src/r_cg_intprg.d \
 ./src/cg_src/r_cg_main.d \
+./src/cg_src/r_cg_mtu3.d \
+./src/cg_src/r_cg_mtu3_user.d \
 ./src/cg_src/r_cg_port.d \
 ./src/cg_src/r_cg_port_user.d \
 ./src/cg_src/r_cg_resetprg.d \
@@ -42,8 +46,8 @@ C_DEPS += \
 ./src/cg_src/r_cg_vecttbl.d 
 
 OBJS += \
+./src/cg_src/Navi.obj \
 ./src/cg_src/data_transfer.obj \
-./src/cg_src/duty.obj \
 ./src/cg_src/r_cg_cgc.obj \
 ./src/cg_src/r_cg_cgc_user.obj \
 ./src/cg_src/r_cg_cmt.obj \
@@ -52,6 +56,8 @@ OBJS += \
 ./src/cg_src/r_cg_hardware_setup.obj \
 ./src/cg_src/r_cg_intprg.obj \
 ./src/cg_src/r_cg_main.obj \
+./src/cg_src/r_cg_mtu3.obj \
+./src/cg_src/r_cg_mtu3_user.obj \
 ./src/cg_src/r_cg_port.obj \
 ./src/cg_src/r_cg_port_user.obj \
 ./src/cg_src/r_cg_resetprg.obj \

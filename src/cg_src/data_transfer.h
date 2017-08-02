@@ -12,7 +12,7 @@
 
 #endif /* CG_SRC_DATA_TRANSFER_H_ */
 
-#include "duty.h"
+#include "Navi.h"
 #include "r_cg_macrodriver.h"
 
 void Data_Receive_Anl(uint8_t *data_buf);

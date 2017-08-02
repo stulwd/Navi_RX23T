@@ -108,7 +108,7 @@ all: RX23T.mot
 # Tool invocations
 RX23T.mot: $(LINKER_OUTPUT_OUTPUTS)
 	@echo 'Invoking: Converter'
-	rlink   "D:\RX23T\RX23T\HardwareDebug\RX23T.abs" -form=stype  -output="D:\RX23T\RX23T\HardwareDebug\RX23T.mot" -nomessage
+	rlink   "D:\RX23T\Navi_RX23T\HardwareDebug\RX23T.abs" -form=stype  -output="D:\RX23T\Navi_RX23T\HardwareDebug\RX23T.mot" -nomessage
 	@echo 'Finished building target:'
 	@echo.
 	$(MAKE) --no-print-directory post-build
@@ -116,13 +116,13 @@ RX23T.mot: $(LINKER_OUTPUT_OUTPUTS)
 RX23T.abs: $(OBJS) $(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS) $(ALL_ASMS) 
 	@echo 'Invoking: Linker'
 	@echo 'Building target:'
-	rlink  -subcommand="LinkerSubCommand.tmp"  -library="D:\RX23T\RX23T\HARDWA~2\RX23T.lib" -noprelink -list="RX23T.map" -show -nooptimize -debug -output="D:\RX23T\RX23T\HardwareDebug\RX23T.abs" -rom=D=R,D_1=R_1,D_2=R_2 -nocompress -nomessage -nologo
+	rlink  -subcommand="LinkerSubCommand.tmp"  -library="D:\RX23T\NAVI_R~1\HARDWA~2\RX23T.lib" -noprelink -list="RX23T.map" -show -nooptimize -debug -output="D:\RX23T\Navi_RX23T\HardwareDebug\RX23T.abs" -rom=D=R,D_1=R_1,D_2=R_2 -nocompress -nomessage -nologo
 	@echo 'Finished building:'
 	@echo.
 
 RX23T.lib:  
 	@echo 'Invoking: Standard Library'
-	lbgrx -head=runtime,stdio,stdlib,string,new -isa=rxv2 -fpu -output="RX23T.lib"
+	lbgrx -head=runtime,ctype,math,mathf,stdarg,stdio,stdlib,string,ios,new,complex,cppstring -isa=rxv2 -fpu -output="RX23T.lib"
 	@echo 'Finished building:'
 	@echo.
 

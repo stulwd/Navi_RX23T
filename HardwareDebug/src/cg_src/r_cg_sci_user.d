@@ -9,7 +9,7 @@ src/cg_src/r_cg_sci_user.obj src/cg_src/r_cg_sci_user.d: ../src/cg_src/r_cg_sci.
 ../src/cg_src/r_cg_sci.h:
 src/cg_src/r_cg_sci_user.obj src/cg_src/r_cg_sci_user.d: ../src/cg_src/data_transfer.h
 ../src/cg_src/data_transfer.h:
-src/cg_src/r_cg_sci_user.obj src/cg_src/r_cg_sci_user.d: ../src/cg_src/duty.h
-../src/cg_src/duty.h:
+src/cg_src/r_cg_sci_user.obj src/cg_src/r_cg_sci_user.d: ../src/cg_src/Navi.h
+../src/cg_src/Navi.h:
 src/cg_src/r_cg_sci_user.obj src/cg_src/r_cg_sci_user.d: ../src/cg_src/r_cg_userdefine.h
 ../src/cg_src/r_cg_userdefine.h:

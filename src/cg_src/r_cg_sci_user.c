@@ -23,14 +23,14 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for SCI module.
-* Creation Date: 2017/7/29
+* Creation Date: 2017/8/1
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
 Pragma directive
 ***********************************************************************************************************************/
 /* Start user code for pragma. Do not edit comment generated here */
-unsigned char RxBuffer[50];
+unsigned char RxBuffer[10];//,RxBuffer_1[10],RxBuffer_2[10],RxBuffer_3[10];
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -270,6 +270,7 @@ void Receive_joint(uint8_t data)
 {
 	static uint8_t _data_len = 0,_data_cnt = 0;
 	static uint8_t state = 0;
+	uint8_t i;
 
 	if(state==0&&data==0xBB)
 	{
@@ -290,7 +291,23 @@ void Receive_joint(uint8_t data)
 		{
 			state = 0;
 			_data_cnt=0;
-			Data_Receive_Anl(RxBuffer);
+
+//			for(i=0;i<10;i++)
+//			{
+//				RxBuffer_3[i] = RxBuffer_2[i];
+//				RxBuffer_2[i] = RxBuffer_1[i];
+//				RxBuffer_1[i] = RxBuffer[i];
+//			}
+//			for(i=0;i<10;i++)
+//			{
+//				if(!((RxBuffer_3[i]==RxBuffer_2[i])&&(RxBuffer_2[i]==RxBuffer_1[i])))
+//					break;
+//			}
+//			if(i==10)
+//			{
+				Data_Receive_Anl(RxBuffer);
+//			}
+
 		}
 	}
 	else
