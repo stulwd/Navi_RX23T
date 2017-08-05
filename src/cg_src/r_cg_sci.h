@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for SCI module.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 #ifndef SCI_H
 #define SCI_H
@@ -307,6 +307,7 @@ void R_SCI1_Start(void);
 void R_SCI1_Stop(void);
 MD_STATUS R_SCI1_Serial_Send(uint8_t * const tx_buf, uint16_t tx_num);
 MD_STATUS R_SCI1_Serial_Receive(uint8_t * const rx_buf, uint16_t rx_num);
+static void r_sci1_callback_transmitend(void);
 static void r_sci1_callback_receiveend(void);
 static void r_sci1_callback_receiveerror(void);
 void R_SCI5_Create(void);
@@ -314,10 +315,14 @@ void R_SCI5_Start(void);
 void R_SCI5_Stop(void);
 MD_STATUS R_SCI5_Serial_Send(uint8_t * const tx_buf, uint16_t tx_num);
 MD_STATUS R_SCI5_Serial_Receive(uint8_t * const rx_buf, uint16_t rx_num);
+static void r_sci5_callback_transmitend(void);
 static void r_sci5_callback_receiveend(void);
+static void r_sci5_callback_receiveerror(void);
 
 /* Start user code for function. Do not edit comment generated here */
-extern unsigned char Com_Data;
-void Receive_joint(uint8_t data);
+extern unsigned char Com_Data1;
+extern unsigned char Com_Data5;
+void Receive1_joint(uint8_t data);			//串口1
+void Receive5_joint(uint8_t data);			//数传5
 /* End user code. Do not edit comment generated here */
 #endif

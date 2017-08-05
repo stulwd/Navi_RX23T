@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for MTU3 module.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 #ifndef MTU3_H
 #define MTU3_H

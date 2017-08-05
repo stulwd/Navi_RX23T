@@ -5,100 +5,44 @@
  *      Author: LWD
  */
 
-
 #include "Navi.h"
-#include "r_cg_macrodriver.h"
+#include "data_transfer.h"
+#include "servo.h"
 
-unsigned char Tx_buffer[]="0123456789";
+
 Fly_info f_info;
+uint8_t  Mission_Buffer[20];
+uint8_t  Now_task=0;
 
-
-
+/************************************************************************************************************************
+*
+*		#define kp_posture		(uint8_t)0x00	//悬停
+*		#define up_kephig		(uint8_t)0x01	//起飞+定高
+*		#define forward			(uint8_t)0x02	//前进
+*		#define tn_lef			(uint8_t)0x03	//左转
+*		#define tn_rig			(uint8_t)0x04	//右转
+*		#define down			(uint8_t)0x05	//降高
+*		#define up				(uint8_t)0x06	//升高
+*		#define down_land		(uint8_t)0x07	//降落
+*
+*		#define unlock			(uint8_t)0x10	//解锁
+*		#define unlock			(uint8_t)0x11	//锁定
+*
+*		case 0x00:	f_info.status=0;  break;   	//异常
+*		case 0x01:  f_info.status=1;  break;	//起飞+定高完成
+*		case 0x02:	f_info.status=2;  break;	//前进完成
+*		case 0x03:  f_info.status=3;  break;	//左转完成
+*		case 0x04:	f_info.status=4;  break;	//右转完成
+*		case 0x05:  f_info.status=5;  break;	//降高完成
+*		case 0x06:	f_info.status=6;  break; 	//升高完成
+*		case 0x07:  f_info.status=7;			//降落
+***************************************************************************************************************************/
 void Navigate ()
 {
-
-
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-void Duty_1ms()
-{
-	;
-}
-void Duty_2ms()
-{
-	MTU0.TGRA++;
-	if(MTU0.TGRA>=0x49C2)
+	if(f_info.status == Mission_Buffer[Now_task])		//判断若当前任务完成，进入下一个任务
 	{
-		MTU0.TGRA=0x04E1;
+		Now_task++;
 	}
+	f_info.Auto_ctrl.act= Mission_Buffer[Now_task];
 }
-void Duty_5ms()
-{
-
-}
-void Duty_10ms()
-{
-
-}
-void Duty_20ms()
-{
-
-}
-void Duty_50ms()
-{
-	indicate_LED();     //飞机目前飞行状态指示
-}
-void Duty_1s()
-{
-
-}
-void Duty_2s()
-{
-
-
-}
-
-
-
-
-void indicate_LED()
-{
-
-	static unsigned char Tx_buffer[]="123456";
-	static int cnt,led_f;
-
-//	if(up_flag==1)
-//	{led_f=4;up_flag=0;}
-//	if(pass_A_flag==1)
-//	{led_f=10;pass_A_flag=0;}
-//	if(pass_B_flag==1)
-//	{led_f=20;pass_B_flag=0;}
-//	if(pass_C_flag==1)
-//	{led_f=10;pass_C_flag=0;}
-//	if(down_flag==1)
-//	{led_f=4;down_flag=0;}
-
-	R_SCI5_Serial_Send(Tx_buffer,6);
-	if(cnt>=led_f)
-	{
-		PORT7.PODR.BIT.B6=~PORT7.PODR.BIT.B6;
-		cnt=0;
-	}
-	cnt++;
-}
-
-
 

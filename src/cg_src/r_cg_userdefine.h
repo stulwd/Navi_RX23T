@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file includes user definition.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 #ifndef _USER_DEF_H
 #define _USER_DEF_H
@@ -34,5 +34,7 @@ User definitions
 #define FAST_INTERRUPT_VECTOR 0
 
 /* Start user code for function. Do not edit comment generated here */
+
+void Exit_init();
 /* End user code. Do not edit comment generated here */
 #endif

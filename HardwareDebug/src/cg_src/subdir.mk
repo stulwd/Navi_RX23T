@@ -6,12 +6,15 @@
 C_SRCS += \
 ..\src/cg_src/Navi.c \
 ..\src/cg_src/data_transfer.c \
+..\src/cg_src/key.c \
 ..\src/cg_src/r_cg_cgc.c \
 ..\src/cg_src/r_cg_cgc_user.c \
 ..\src/cg_src/r_cg_cmt.c \
 ..\src/cg_src/r_cg_cmt_user.c \
 ..\src/cg_src/r_cg_dbsct.c \
 ..\src/cg_src/r_cg_hardware_setup.c \
+..\src/cg_src/r_cg_icu.c \
+..\src/cg_src/r_cg_icu_user.c \
 ..\src/cg_src/r_cg_intprg.c \
 ..\src/cg_src/r_cg_main.c \
 ..\src/cg_src/r_cg_mtu3.c \
@@ -22,17 +25,22 @@ C_SRCS += \
 ..\src/cg_src/r_cg_sbrk.c \
 ..\src/cg_src/r_cg_sci.c \
 ..\src/cg_src/r_cg_sci_user.c \
-..\src/cg_src/r_cg_vecttbl.c 
+..\src/cg_src/r_cg_vecttbl.c \
+..\src/cg_src/scheduler.c \
+..\src/cg_src/servo.c 
 
 C_DEPS += \
 ./src/cg_src/Navi.d \
 ./src/cg_src/data_transfer.d \
+./src/cg_src/key.d \
 ./src/cg_src/r_cg_cgc.d \
 ./src/cg_src/r_cg_cgc_user.d \
 ./src/cg_src/r_cg_cmt.d \
 ./src/cg_src/r_cg_cmt_user.d \
 ./src/cg_src/r_cg_dbsct.d \
 ./src/cg_src/r_cg_hardware_setup.d \
+./src/cg_src/r_cg_icu.d \
+./src/cg_src/r_cg_icu_user.d \
 ./src/cg_src/r_cg_intprg.d \
 ./src/cg_src/r_cg_main.d \
 ./src/cg_src/r_cg_mtu3.d \
@@ -43,17 +51,22 @@ C_DEPS += \
 ./src/cg_src/r_cg_sbrk.d \
 ./src/cg_src/r_cg_sci.d \
 ./src/cg_src/r_cg_sci_user.d \
-./src/cg_src/r_cg_vecttbl.d 
+./src/cg_src/r_cg_vecttbl.d \
+./src/cg_src/scheduler.d \
+./src/cg_src/servo.d 
 
 OBJS += \
 ./src/cg_src/Navi.obj \
 ./src/cg_src/data_transfer.obj \
+./src/cg_src/key.obj \
 ./src/cg_src/r_cg_cgc.obj \
 ./src/cg_src/r_cg_cgc_user.obj \
 ./src/cg_src/r_cg_cmt.obj \
 ./src/cg_src/r_cg_cmt_user.obj \
 ./src/cg_src/r_cg_dbsct.obj \
 ./src/cg_src/r_cg_hardware_setup.obj \
+./src/cg_src/r_cg_icu.obj \
+./src/cg_src/r_cg_icu_user.obj \
 ./src/cg_src/r_cg_intprg.obj \
 ./src/cg_src/r_cg_main.obj \
 ./src/cg_src/r_cg_mtu3.obj \
@@ -64,7 +77,9 @@ OBJS += \
 ./src/cg_src/r_cg_sbrk.obj \
 ./src/cg_src/r_cg_sci.obj \
 ./src/cg_src/r_cg_sci_user.obj \
-./src/cg_src/r_cg_vecttbl.obj 
+./src/cg_src/r_cg_vecttbl.obj \
+./src/cg_src/scheduler.obj \
+./src/cg_src/servo.obj 
 
 
 # Each subdirectory must supply rules for building sources it contributes

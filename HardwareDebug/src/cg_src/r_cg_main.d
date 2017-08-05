@@ -7,6 +7,8 @@ src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/../iodefine.h
 ../src/cg_src/../iodefine.h:
 src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_cgc.h
 ../src/cg_src/r_cg_cgc.h:
+src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_icu.h
+../src/cg_src/r_cg_icu.h:
 src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_port.h
 ../src/cg_src/r_cg_port.h:
 src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_mtu3.h
@@ -17,5 +19,9 @@ src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_sci.h
 ../src/cg_src/r_cg_sci.h:
 src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/Navi.h
 ../src/cg_src/Navi.h:
+src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/key.h
+../src/cg_src/key.h:
+src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/scheduler.h
+../src/cg_src/scheduler.h:
 src/cg_src/r_cg_main.obj src/cg_src/r_cg_main.d: ../src/cg_src/r_cg_userdefine.h
 ../src/cg_src/r_cg_userdefine.h:

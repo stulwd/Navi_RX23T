@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for CMT module.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -38,7 +38,7 @@ Includes
 #include "r_cg_macrodriver.h"
 #include "r_cg_cmt.h"
 /* Start user code for include. Do not edit comment generated here */
-#include "Navi.h"
+#include "scheduler.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -46,7 +46,6 @@ Includes
 Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
-loop_t loop;
 /* End user code. Do not edit comment generated here */
 
 /***********************************************************************************************************************
@@ -65,80 +64,8 @@ static void r_cmt_cmi0_interrupt(void)
     /* Start user code. Do not edit comment generated here */
 	//PORT7.PODR.BIT.B6=~PORT7.PODR.BIT.B6;
 		Loop_check();     //每一毫秒产生一次
-
-
     /* End user code. Do not edit comment generated here */
 }
 
 /* Start user code for adding. Do not edit comment generated here */
-
-void Loop_check(void)
-{
-	loop.time++;
-	loop.cnt_2ms++;
-	loop.cnt_5ms++;
-	loop.cnt_10ms++;
-	loop.cnt_20ms++;
-	loop.cnt_50ms++;
-	loop.cnt_1s++;
-	loop.cnt_2s++;
-	if( loop.check_flag==1 )
-	{
-		loop.err_flag ++;
-	}
-	else
-	{
-		loop.check_flag = 1;
-	}
-}
-void Duty_Loop()   					//最短任务周期为1ms，总的代码执行时间需要小于1ms。
-{
-	if( loop.check_flag == 1 )
-	{
-			Duty_1ms();
-
-			if( loop.cnt_2ms >= 2 )
-			{
-				loop.cnt_2ms = 0;
-				Duty_2ms();						//周期2ms的任务
-			}
-			if( loop.cnt_5ms >= 5 )
-			{
-				loop.cnt_5ms = 0;
-				Duty_5ms();						//周期5ms的任务
-			}
-			if( loop.cnt_10ms >= 10 )
-			{
-				loop.cnt_10ms = 0;
-				Duty_10ms();					//周期10ms的任务
-			}
-			if( loop.cnt_20ms >= 20 )
-			{
-				loop.cnt_20ms = 0;
-				Duty_20ms();					//周期20ms的任务
-			}
-			if( loop.cnt_50ms >= 50 )
-			{
-				loop.cnt_50ms = 0;
-				Duty_50ms();					//周期50ms的任务
-			}
-			if( loop.cnt_1s >= 1000)
-			{
-				loop.cnt_1s = 0;
-				Duty_1s();
-			}
-			if( loop.cnt_2s >= 2000)
-			{
-				loop.cnt_2s = 0;
-				Duty_2s();
-			}
-			loop.check_flag = 0;
-	}
-}
-
-
-
-
-
-
 /* End user code. Do not edit comment generated here */

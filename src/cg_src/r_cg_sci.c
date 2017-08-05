@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for SCI module.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -232,21 +232,21 @@ void R_SCI5_Create(void)
                     _00_SCI_MULTI_PROCESSOR_DISABLE | _00_SCI_ASYNCHRONOUS_MODE;
     SCI5.SCMR.BYTE = _00_SCI_SERIAL_MODE | _00_SCI_DATA_INVERT_NONE | _00_SCI_DATA_LSB_FIRST | 
                      _10_SCI_DATA_LENGTH_8_OR_7 | _62_SCI_SCMR_DEFAULT;
-    SCI5.SEMR.BYTE = _00_SCI_LOW_LEVEL_START_BIT | _00_SCI_NOISE_FILTER_DISABLE | _00_SCI_16_BASE_CLOCK | 
-                     _00_SCI_BAUDRATE_SINGLE | _00_SCI_BIT_MODULATION_DISABLE;
+    SCI5.SEMR.BYTE = _00_SCI_LOW_LEVEL_START_BIT | _00_SCI_NOISE_FILTER_DISABLE | _10_SCI_8_BASE_CLOCK | 
+                     _40_SCI_BAUDRATE_DOUBLE | _00_SCI_BIT_MODULATION_DISABLE;
 
     /* Set bitrate */
-    SCI5.BRR = 0x81U;
+    SCI5.BRR = 0x2AU;
 
     /* Set RXD5 pin */
-    MPC.PB1PFS.BYTE = 0x0AU;
-    PORTB.PMR.BYTE |= 0x02U;
+    MPC.PB6PFS.BYTE = 0x0AU;
+    PORTB.PMR.BYTE |= 0x40U;
 
     /* Set TXD5 pin */
-    MPC.PB2PFS.BYTE = 0x0AU;
-    PORTB.PODR.BYTE |= 0x04U;
-    PORTB.PDR.BYTE |= 0x04U;
-    PORTB.PMR.BYTE |= 0x04U;
+    MPC.PB5PFS.BYTE = 0x0AU;
+    PORTB.PODR.BYTE |= 0x20U;
+    PORTB.PDR.BYTE |= 0x20U;
+    PORTB.PMR.BYTE |= 0x20U;
 }
 /***********************************************************************************************************************
 * Function Name: R_SCI5_Start
@@ -264,6 +264,7 @@ void R_SCI5_Start(void)
     IEN(SCI5, TXI5) = 1U;
     IEN(SCI5, TEI5) = 1U;
     IEN(SCI5, RXI5) = 1U;
+    IEN(SCI5, ERI5) = 1U;
 }
 /***********************************************************************************************************************
 * Function Name: R_SCI5_Stop
@@ -274,7 +275,7 @@ void R_SCI5_Start(void)
 void R_SCI5_Stop(void)
 {
     /* Set TXD5 pin */
-    PORTB.PMR.BYTE &= 0xFBU;
+    PORTB.PMR.BYTE &= 0xDFU;
     SCI5.SCR.BIT.TE = 0U;      /* Disable serial transmit */
     SCI5.SCR.BIT.RE = 0U;      /* Disable serial receive */
 
@@ -285,6 +286,7 @@ void R_SCI5_Stop(void)
     IEN(SCI5, TEI5) = 0U;
     IR(SCI5, TXI5) = 0U;
     IEN(SCI5, RXI5) = 0U;
+    IEN(SCI5, ERI5) = 0U;
     IR(SCI5, RXI5) = 0U;
 }
 /***********************************************************************************************************************
@@ -340,7 +342,7 @@ MD_STATUS R_SCI5_Serial_Send(uint8_t * const tx_buf, uint16_t tx_num)
         g_sci5_tx_count = tx_num;
 
         /* Set TXD5 pin */
-        PORTB.PMR.BYTE |= 0x04U;
+        PORTB.PMR.BYTE |= 0x20U;
         SCI5.SCR.BIT.TIE = 1U;
         SCI5.SCR.BIT.TE = 1U;
     }

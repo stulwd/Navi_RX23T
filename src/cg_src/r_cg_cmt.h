@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for CMT module.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 #ifndef CMT_H
 #define CMT_H
@@ -82,23 +82,5 @@ void R_CMT0_Start(void);
 void R_CMT0_Stop(void);
 
 /* Start user code for function. Do not edit comment generated here */
-typedef struct
-{
-	uint8_t check_flag;
-	uint8_t err_flag;
-	uint8_t camera_data_ok;
-	int16_t cnt_camera_data_ms;
-	int16_t cnt_1ms;
-	int16_t cnt_2ms;
-	int16_t cnt_5ms;
-	int16_t cnt_10ms;
-	int16_t cnt_20ms;
-	int16_t cnt_50ms;
-	int16_t cnt_1s;
-	int16_t cnt_2s;
-	int16_t time;
-}loop_t;
-void Duty_Loop(void);
-void Loop_check(void);
 /* End user code. Do not edit comment generated here */
 #endif

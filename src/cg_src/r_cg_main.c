@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements main function.
-* Creation Date: 2017/8/1
+* Creation Date: 2017/8/4
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -37,12 +37,15 @@ Includes
 ***********************************************************************************************************************/
 #include "r_cg_macrodriver.h"
 #include "r_cg_cgc.h"
+#include "r_cg_icu.h"
 #include "r_cg_port.h"
 #include "r_cg_mtu3.h"
 #include "r_cg_cmt.h"
 #include "r_cg_sci.h"
 /* Start user code for include. Do not edit comment generated here */
 #include "Navi.h"
+#include "key.h"
+#include "scheduler.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -50,9 +53,6 @@ Includes
 Global variables and functions
 ***********************************************************************************************************************/
 /* Start user code for global. Do not edit comment generated here */
-unsigned char SCI_Send_Data[] = "0123456789ABCD";
-
-
 /* End user code. Do not edit comment generated here */
 
 
@@ -69,7 +69,6 @@ void main(void)
     /* Start user code. Do not edit comment generated here */
     while (1U)
     {
-    	Navigate();
     	Duty_Loop();     //任务循环
     }
     /* End user code. Do not edit comment generated here */
@@ -84,11 +83,26 @@ void R_MAIN_UserInit(void)
 {
     /* Start user code. Do not edit comment generated here */
     R_CMT0_Start();   //开启1ms中断定时器
-    R_SCI5_Start();	  //启动串口
-    R_SCI5_Serial_Receive(&Com_Data , 1);
-    R_MTU3_C0_Start();
+    R_SCI1_Start();	  //启动串口1  与飞控通信
+    R_SCI5_Start();	  //启动串口5 无线串口
+    R_SCI1_Serial_Receive(&Com_Data1 , 1);   //设置串口接收
+    R_SCI5_Serial_Receive(&Com_Data5 , 1);	//设置无线串口接收
+    R_MTU3_C0_Start();		//PWM初始化
+ //   Exit_init();		//外部中断初始化
+ //   mode_setting();		//等待通过按键设置模式完成关外部中断
     /* End user code. Do not edit comment generated here */
 }
 
 /* Start user code for adding. Do not edit comment generated here */
+/***外部中断初始化***/
+void Exit_init()
+{
+	R_ICU_IRQ0_Start();
+	R_ICU_IRQ1_Start();
+	R_ICU_IRQ2_Start();
+	R_ICU_IRQ4_Start();
+	R_ICU_IRQ5_Start();
+}
+
+
 /* End user code. Do not edit comment generated here */
