@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for MTU3 module.
-* Creation Date: 2017/8/4
+* Creation Date: 2017/8/6
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -82,12 +82,57 @@ void R_MTU3_Create(void)
                      _00_MTU_TCIEU_DISABLE | _00_MTU_TCIEV_DISABLE | _00_MTU_TTGE_DISABLE;
     MTU0.TIER2.BYTE = _00_MTU_TGIEE_DISABLE | _00_MTU_TGIEF_DISABLE | _00_MTU_TTGE2_DISABLE;
 
+    /* Channel 1 is used as PWM1 mode */
+    MTU1.TCR.BYTE = _00_MTU_PCLK_1 | _00_MTU_CKEG_RISE | _20_MTU_CKCL_A;
+    MTU1.TCR2.BYTE = _00_MTU_PCLK_1;
+    MTU.TSYRA.BIT.SYNC1 = 0U;
+    MTU1.TMDR1.BYTE = _02_MTU_PWM1;
+    MTU1.TIOR.BYTE = _50_MTU_IOB_HL | _02_MTU_IOA_LH;
+    MTU1.TGRA = _0F9F_TGRA_VALUE;
+    MTU1.TGRB = _0063_TGRB_VALUE;
+    MTU1.TIER.BYTE = _00_MTU_TGIEA_DISABLE | _00_MTU_TGIEB_DISABLE | _00_MTU_TGIEC_DISABLE | _00_MTU_TGIED_DISABLE | 
+                     _00_MTU_TCIEU_DISABLE | _00_MTU_TCIEV_DISABLE | _00_MTU_TTGE_DISABLE;
+
+    /* Channel 2 is used as PWM1 mode */
+    MTU2.TCR.BYTE = _00_MTU_PCLK_1 | _00_MTU_CKEG_RISE | _20_MTU_CKCL_A;
+    MTU2.TCR2.BYTE = _00_MTU_PCLK_1;
+    MTU.TSYRA.BIT.SYNC2 = 0U;
+    MTU2.TMDR1.BYTE = _02_MTU_PWM1;
+    MTU2.TIOR.BYTE = _50_MTU_IOB_HL | _02_MTU_IOA_LH;
+    MTU2.TGRA = _0F9F_TGRA_VALUE;
+    MTU2.TGRB = _0063_TGRB_VALUE;
+    MTU2.TIER.BYTE = _00_MTU_TGIEA_DISABLE | _00_MTU_TGIEB_DISABLE | _00_MTU_TGIEC_DISABLE | _00_MTU_TGIED_DISABLE | 
+                     _00_MTU_TCIEU_DISABLE | _00_MTU_TCIEV_DISABLE | _00_MTU_TTGE_DISABLE;
+
+    /* Channel 3 is used as PWM1 mode */
+    MTU3.TCR.BYTE = _00_MTU_PCLK_1 | _00_MTU_CKEG_RISE | _20_MTU_CKCL_A;
+    MTU3.TCR2.BYTE = _00_MTU_PCLK_1;
+    MTU.TSYRA.BIT.SYNC3 = 0U;
+    MTU3.TMDR1.BYTE = _02_MTU_PWM1;
+    MTU3.TIORH.BYTE = _50_MTU_IOB_HL | _02_MTU_IOA_LH;
+    MTU3.TIORL.BYTE = _00_MTU_IOC_DISABLE;
+    MTU3.TGRA = _0F9F_TGRA_VALUE;
+    MTU3.TGRB = _0063_TGRB_VALUE;
+    MTU3.TGRC = _0063_TGRC_VALUE;
+    MTU3.TGRD = _0063_TGRD_VALUE;
+    MTU3.TIER.BYTE = _00_MTU_TGIEA_DISABLE | _00_MTU_TGIEB_DISABLE | _00_MTU_TGIEC_DISABLE | _00_MTU_TGIED_DISABLE | 
+                     _00_MTU_TCIEU_DISABLE | _00_MTU_TCIEV_DISABLE | _00_MTU_TTGE_DISABLE;
+
     /* Disable read/write to MTU registers */
     MTU.TRWERA.BYTE = _00_MTU_RWE_DISABLE;
 
     /* Set MTIOC0A pin */
     MPC.PB3PFS.BYTE = 0x01U;
     PORTB.PMR.BYTE |= 0x08U;
+    /* Set MTIOC1A pin */
+    MPC.PA5PFS.BYTE = 0x01U;
+    PORTA.PMR.BYTE |= 0x20U;
+    /* Set MTIOC2A pin */
+    MPC.PA3PFS.BYTE = 0x01U;
+    PORTA.PMR.BYTE |= 0x08U;
+    /* Set MTIOC3A pin */
+    MPC.P33PFS.BYTE = 0x01U;
+    PORT3.PMR.BYTE |= 0x08U;
 }
 /***********************************************************************************************************************
 * Function Name: R_MTU3_C0_Start
@@ -108,6 +153,66 @@ void R_MTU3_C0_Start(void)
 void R_MTU3_C0_Stop(void)
 {
     MTU.TSTRA.BIT.CST0 = 0U;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C1_Start
+* Description  : This function starts MTU3 channel 1 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C1_Start(void)
+{
+    MTU.TSTRA.BYTE |= _02_MTU_CST1_ON;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C1_Stop
+* Description  : This function stops MTU3 channel 1 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C1_Stop(void)
+{
+    MTU.TSTRA.BIT.CST1 = 0U;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C2_Start
+* Description  : This function starts MTU3 channel 2 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C2_Start(void)
+{
+    MTU.TSTRA.BYTE |= _04_MTU_CST2_ON;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C2_Stop
+* Description  : This function stops MTU3 channel 2 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C2_Stop(void)
+{
+    MTU.TSTRA.BIT.CST2 = 0U;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C3_Start
+* Description  : This function starts MTU3 channel 3 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C3_Start(void)
+{
+    MTU.TSTRA.BYTE |= _40_MTU_CST3_ON;
+}
+/***********************************************************************************************************************
+* Function Name: R_MTU3_C3_Stop
+* Description  : This function stops MTU3 channel 3 counter.
+* Arguments    : None
+* Return Value : None
+***********************************************************************************************************************/
+void R_MTU3_C3_Stop(void)
+{
+    MTU.TSTRA.BIT.CST3 = 0U;
 }
 
 /* Start user code for adding. Do not edit comment generated here */

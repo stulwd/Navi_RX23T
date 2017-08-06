@@ -7,6 +7,7 @@ C_SRCS += \
 ..\src/cg_src/Navi.c \
 ..\src/cg_src/data_transfer.c \
 ..\src/cg_src/key.c \
+..\src/cg_src/oled.c \
 ..\src/cg_src/r_cg_cgc.c \
 ..\src/cg_src/r_cg_cgc_user.c \
 ..\src/cg_src/r_cg_cmt.c \
@@ -22,6 +23,10 @@ C_SRCS += \
 ..\src/cg_src/r_cg_port.c \
 ..\src/cg_src/r_cg_port_user.c \
 ..\src/cg_src/r_cg_resetprg.c \
+..\src/cg_src/r_cg_riic.c \
+..\src/cg_src/r_cg_riic_user.c \
+..\src/cg_src/r_cg_rspi.c \
+..\src/cg_src/r_cg_rspi_user.c \
 ..\src/cg_src/r_cg_sbrk.c \
 ..\src/cg_src/r_cg_sci.c \
 ..\src/cg_src/r_cg_sci_user.c \
@@ -33,6 +38,7 @@ C_DEPS += \
 ./src/cg_src/Navi.d \
 ./src/cg_src/data_transfer.d \
 ./src/cg_src/key.d \
+./src/cg_src/oled.d \
 ./src/cg_src/r_cg_cgc.d \
 ./src/cg_src/r_cg_cgc_user.d \
 ./src/cg_src/r_cg_cmt.d \
@@ -48,6 +54,10 @@ C_DEPS += \
 ./src/cg_src/r_cg_port.d \
 ./src/cg_src/r_cg_port_user.d \
 ./src/cg_src/r_cg_resetprg.d \
+./src/cg_src/r_cg_riic.d \
+./src/cg_src/r_cg_riic_user.d \
+./src/cg_src/r_cg_rspi.d \
+./src/cg_src/r_cg_rspi_user.d \
 ./src/cg_src/r_cg_sbrk.d \
 ./src/cg_src/r_cg_sci.d \
 ./src/cg_src/r_cg_sci_user.d \
@@ -59,6 +69,7 @@ OBJS += \
 ./src/cg_src/Navi.obj \
 ./src/cg_src/data_transfer.obj \
 ./src/cg_src/key.obj \
+./src/cg_src/oled.obj \
 ./src/cg_src/r_cg_cgc.obj \
 ./src/cg_src/r_cg_cgc_user.obj \
 ./src/cg_src/r_cg_cmt.obj \
@@ -74,6 +85,10 @@ OBJS += \
 ./src/cg_src/r_cg_port.obj \
 ./src/cg_src/r_cg_port_user.obj \
 ./src/cg_src/r_cg_resetprg.obj \
+./src/cg_src/r_cg_riic.obj \
+./src/cg_src/r_cg_riic_user.obj \
+./src/cg_src/r_cg_rspi.obj \
+./src/cg_src/r_cg_rspi_user.obj \
 ./src/cg_src/r_cg_sbrk.obj \
 ./src/cg_src/r_cg_sci.obj \
 ./src/cg_src/r_cg_sci_user.obj \

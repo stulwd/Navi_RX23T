@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements system initializing function.
-* Creation Date: 2017/8/4
+* Creation Date: 2017/8/6
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -41,7 +41,9 @@ Includes
 #include "r_cg_port.h"
 #include "r_cg_mtu3.h"
 #include "r_cg_cmt.h"
+#include "r_cg_rspi.h"
 #include "r_cg_sci.h"
+#include "r_cg_riic.h"
 /* Start user code for include. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
@@ -75,8 +77,10 @@ void R_Systeminit(void)
     R_PORT_Create();
     R_MTU3_Create();
     R_CMT0_Create();
+    R_RSPI0_Create();
     R_SCI1_Create();
     R_SCI5_Create();
+    R_RIIC0_Create();
 
     /* Disable writing to MPC pin function control registers */
     MPC.PWPR.BIT.PFSWE = 0U;    

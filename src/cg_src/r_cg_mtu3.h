@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for MTU3 module.
-* Creation Date: 2017/8/4
+* Creation Date: 2017/8/6
 ***********************************************************************************************************************/
 #ifndef MTU3_H
 #define MTU3_H
@@ -614,6 +614,30 @@ Macro definitions
 #define _0063_TGRE_VALUE                   (0x0063U)
 /* PWM1 TGRF value */
 #define _0064_TGRF_VALUE                   (0x0064U)
+/* PWM1 TGRA value */
+#define _0F9F_TGRA_VALUE                   (0x0F9FU)
+/* PWM1 TGRB value */
+#define _0063_TGRB_VALUE                   (0x0063U)
+/* PWM1 TGRC value */
+#define _0063_TGRC_VALUE                   (0x0063U)
+/* PWM1 TGRD value */
+#define _0063_TGRD_VALUE                   (0x0063U)
+/* PWM1 TGRA value */
+#define _0F9F_TGRA_VALUE                   (0x0F9FU)
+/* PWM1 TGRB value */
+#define _0063_TGRB_VALUE                   (0x0063U)
+/* PWM1 TGRC value */
+#define _0063_TGRC_VALUE                   (0x0063U)
+/* PWM1 TGRD value */
+#define _0063_TGRD_VALUE                   (0x0063U)
+/* PWM1 TGRA value */
+#define _0F9F_TGRA_VALUE                   (0x0F9FU)
+/* PWM1 TGRB value */
+#define _0063_TGRB_VALUE                   (0x0063U)
+/* PWM1 TGRC value */
+#define _0063_TGRC_VALUE                   (0x0063U)
+/* PWM1 TGRD value */
+#define _0063_TGRD_VALUE                   (0x0063U)
 
 /***********************************************************************************************************************
 Typedef definitions
@@ -625,6 +649,12 @@ Global functions
 void R_MTU3_Create(void);
 void R_MTU3_C0_Start(void);
 void R_MTU3_C0_Stop(void);
+void R_MTU3_C1_Start(void);
+void R_MTU3_C1_Stop(void);
+void R_MTU3_C2_Start(void);
+void R_MTU3_C2_Stop(void);
+void R_MTU3_C3_Start(void);
+void R_MTU3_C3_Stop(void);
 
 /* Start user code for function. Do not edit comment generated here */
 /* End user code. Do not edit comment generated here */

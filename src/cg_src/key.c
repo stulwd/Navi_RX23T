@@ -10,12 +10,12 @@
 #include "r_cg_icu.h"
 void mode_setting()
 {
-	while (1U)
+	while ( set_finishfuck == 0U )
 	{
-		if((set_finishfuck==1U))
-		{
-			break;
-		}
+//		if( set_finishfuck == 1U )
+//		{
+//			break;
+//		}
 	}	//设置完成后关闭外部中断
 	R_ICU_IRQ0_Stop();
 	R_ICU_IRQ1_Stop();

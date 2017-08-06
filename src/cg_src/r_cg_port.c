@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements device driver for Port module.
-* Creation Date: 2017/8/4
+* Creation Date: 2017/8/6
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -55,7 +55,10 @@ Global variables and functions
 ***********************************************************************************************************************/
 void R_PORT_Create(void)
 {
+    PORT4.PODR.BYTE = _04_Pm2_OUTPUT_1 | _10_Pm4_OUTPUT_1 | _20_Pm5_OUTPUT_1 | _40_Pm6_OUTPUT_1 | _80_Pm7_OUTPUT_1;
     PORT7.DSCR.BYTE |= _40_Pm6_HIDRV_ON;
+    PORT4.PDR.BYTE = _04_Pm2_MODE_OUTPUT | _10_Pm4_MODE_OUTPUT | _20_Pm5_MODE_OUTPUT | _40_Pm6_MODE_OUTPUT | 
+                     _80_Pm7_MODE_OUTPUT;
     PORT7.PDR.BYTE = _40_Pm6_MODE_OUTPUT;
 }
 

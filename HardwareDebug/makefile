@@ -253,7 +253,7 @@ post-build:
 	-E:\E2_STU~1\DEBUGC~1\RENESA~1.EXE RX23T.abs RX23T.x 
 	@echo.
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents $(LINKER_OUTPUT_OUTPUTS)
 .SECONDARY: post-build
 
 -include ../makefile.targets

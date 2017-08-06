@@ -18,6 +18,8 @@ loop_t loop;
 *	给Gnd发送：void Data_Transmit5_Gnd(uint8_t *data_buff);	//传入被发10字节数据帧的头地址
 *
 /*************************************************************************************************************/
+
+
 Duty_50ms()
 {
 	Navigate();		//执行导航任务
@@ -26,40 +28,40 @@ Duty_50ms()
 Duty_100ms()		//数传+串口的任务
 {
 
-	static int cnt,cmt;
-	cmt=f_info.Gnd_ctrl.act;
-	if(!(cmt==0))
-	cnt++;
-
+//	static int cnt,cmt;
+//	cmt=f_info.Gnd_ctrl.act;
+//	if(!(cmt==0))
+//	cnt++;
+//	if(cnt>=cmt)
+//	{
+//		cnt=0;
+//		PORT7.PODR.BIT.B6 = ~PORT7.PODR.BIT.B6;
+//	}
 
 	if(f_info.ctrl_mode==1)			//Ground手动控制
 	{
-		data_trans(f_info.Gnd_ctrl.act,f_info.Gnd_ctrl.deg);
-		if(cnt>=cmt)
-		{
-			cnt=0;
-			PORT7.PODR.BIT.B6 = ~PORT7.PODR.BIT.B6;
-		}
+		data_trans(f_info.Gnd_ctrl.act,f_info.Gnd_ctrl.deg,5);
+	 	OLED_ShowString(63,48,"hahaha");
+		OLED_Refresh_Gram();
+
 	}
 	else if(f_info.ctrl_mode==2)	//队列自动控制
 	{
-		data_trans(f_info.Auto_ctrl.act,f_info.Auto_ctrl.deg);
+		data_trans(f_info.Gnd_ctrl.act,f_info.Gnd_ctrl.deg,5);
+	 	OLED_ShowString(63,48,"hihihi");
+		OLED_Refresh_Gram();
 	}
 
 }
 
 Duty_2s()
 {
-	//data_trans(f_info.Gnd_ctrl.act,f_info.Gnd_ctrl.deg);
+	data_trans(f_info.Gnd_ctrl.act,f_info.Gnd_ctrl.deg,1);
 }
 
 void Loop_check(void)
 {
 	loop.time++;
-	loop.cnt_2ms++;
-	loop.cnt_5ms++;
-	loop.cnt_10ms++;
-	loop.cnt_20ms++;
 	loop.cnt_50ms++;
 	loop.cnt_100ms++;
 	loop.cnt_1s++;

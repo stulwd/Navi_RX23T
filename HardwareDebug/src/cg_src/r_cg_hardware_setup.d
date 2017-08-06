@@ -15,7 +15,11 @@ src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_s
 ../src/cg_src/r_cg_mtu3.h:
 src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_src/r_cg_cmt.h
 ../src/cg_src/r_cg_cmt.h:
+src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_src/r_cg_rspi.h
+../src/cg_src/r_cg_rspi.h:
 src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_src/r_cg_sci.h
 ../src/cg_src/r_cg_sci.h:
+src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_src/r_cg_riic.h
+../src/cg_src/r_cg_riic.h:
 src/cg_src/r_cg_hardware_setup.obj src/cg_src/r_cg_hardware_setup.d: ../src/cg_src/r_cg_userdefine.h
 ../src/cg_src/r_cg_userdefine.h:

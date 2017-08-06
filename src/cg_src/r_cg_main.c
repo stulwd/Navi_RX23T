@@ -23,7 +23,7 @@
 * Device(s)    : R5F523T5AxFM
 * Tool-Chain   : CCRX
 * Description  : This file implements main function.
-* Creation Date: 2017/8/4
+* Creation Date: 2017/8/6
 ***********************************************************************************************************************/
 
 /***********************************************************************************************************************
@@ -41,11 +41,14 @@ Includes
 #include "r_cg_port.h"
 #include "r_cg_mtu3.h"
 #include "r_cg_cmt.h"
+#include "r_cg_rspi.h"
 #include "r_cg_sci.h"
+#include "r_cg_riic.h"
 /* Start user code for include. Do not edit comment generated here */
 #include "Navi.h"
 #include "key.h"
 #include "scheduler.h"
+#include "oled.h"
 /* End user code. Do not edit comment generated here */
 #include "r_cg_userdefine.h"
 
@@ -67,6 +70,13 @@ void main(void)
 {
     R_MAIN_UserInit();
     /* Start user code. Do not edit comment generated here */
+	OLED_Init();			//初始化¯OLED
+ 	OLED_ShowString(0,0, "0.96' OLED TEST");
+ 	OLED_ShowString(0,16,"COPTER");
+ 	OLED_ShowString(0,32,"2017/08/06");
+ 	OLED_ShowString(0,48,"ASCII:");
+ 	OLED_ShowString(63,48,"CODE:");
+	OLED_Refresh_Gram();
     while (1U)
     {
     	Duty_Loop();     //任务循环
@@ -88,8 +98,8 @@ void R_MAIN_UserInit(void)
     R_SCI1_Serial_Receive(&Com_Data1 , 1);   //设置串口接收
     R_SCI5_Serial_Receive(&Com_Data5 , 1);	//设置无线串口接收
     R_MTU3_C0_Start();		//PWM初始化
- //   Exit_init();		//外部中断初始化
- //   mode_setting();		//等待通过按键设置模式完成关外部中断
+//    Exit_init();		//外部中断初始化
+//    mode_setting();		//等待通过按键设置模式完成关外部中断
     /* End user code. Do not edit comment generated here */
 }
 

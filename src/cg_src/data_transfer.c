@@ -51,14 +51,19 @@ void Data_Receive1_Cop (uint8_t *data_buf)
 
 /***************串口1发送****************/
 
-void data_trans(uint8_t act,uint8_t deg)
+void data_trans(uint8_t act,uint8_t deg,uint8_t sci)
 {
 	TXBUF[0]=0xBB;
 	TXBUF[1]=0xE1;
 	TXBUF[2]=act;
 	TXBUF[3]=deg;
 	TXBUF[4]=TXBUF[5]=TXBUF[6]=TXBUF[7]=TXBUF[8]=TXBUF[9]=0;		//目前为0
-	Data_Transmit5_Gnd(TXBUF);						//把任务包发出去
+
+
+	if(sci==1)
+		Data_Transmit1_Cop(TXBUF);						//把任务包发出去
+	else if(sci==5)
+		Data_Transmit5_Gnd(TXBUF);
 }
 /***********串口1发送函数************************/
 void Data_Transmit1_Cop (uint8_t *data_buff)
